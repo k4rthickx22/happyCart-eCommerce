@@ -1,78 +1,155 @@
-# 🛒 E-Commerce Platform
+# 🛒 happyCart - Full Stack E-Commerce Platform
 
-A modern Full-Stack E-Commerce Website built with **Spring Boot 3** and **React**.
+A modern and scalable **Full-Stack E-Commerce Web Application** built using **Spring Boot**, **React**, and **MongoDB Atlas**.
 
+---
 
-https://github.com/user-attachments/assets/c8f39a48-1b21-4a6a-adca-0a65a1eef143
+## 🚀 Live Features
 
+### 👤 User Features
 
-## ✨ Features
+* 🔐 JWT Authentication & Authorization
+* 🛍️ Product Browsing & Search
+* 🛒 Add to Cart / Wishlist
+* 📦 Order Placement & Tracking
+* ⭐ Product Reviews & Ratings
+* 🌙 Dark Mode UI
+* 📱 Responsive Design
 
-| User Features | Admin Features |
-|--------------|----------------|
-| 🔐 JWT Authentication | 📊 Dashboard & Analytics |
-| 🛍️ Product Browsing & Search | 📦 Product Management |
-| 🛒 Shopping Cart | 📂 Category Management |
-| 📦 Order Tracking | 📋 Order Management |
-| ⭐ Reviews & Ratings | 👥 User Management |
+### 🛠️ Admin Features
+
+* 📊 Admin Dashboard
+* 📦 Product Management
+* 📂 Category Management
+* 👥 User Management
+* 📋 Order Processing & Delivery Status
+* 📈 Inventory & Stock Control
+
+---
 
 ## 🛠️ Tech Stack
 
-| Backend | Frontend | Database |
-|---------|----------|----------|
-| Java 21 | React 18 | MongoDB |
-| Spring Boot 3.2 | Vite 5 | |
-| Spring Security (JWT) | Tailwind CSS | |
-| Spring Data MongoDB | Zustand | |
+| Backend               | Frontend     | Database      |
+| --------------------- | ------------ | ------------- |
+| Java 17               | React 18     | MongoDB Atlas |
+| Spring Boot 3         | Vite         |               |
+| Spring Security + JWT | Tailwind CSS |               |
+| Spring Data MongoDB   | Zustand      |               |
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
-- Java 21, Node.js 18+, MongoDB
+## 📸 Project Preview
 
-### Backend
+<img width="100%" src="https://github.com/user-attachments/assets/c8f39a48-1b21-4a6a-adca-0a65a1eef143"/>
+
+---
+
+## ⚙️ Installation & Setup
+
+### 🔹 Clone Repository
+
+```bash
+git clone https://github.com/k4rthickx22/happyCart-eCommerce.git
+cd happyCart-eCommerce
+```
+
+---
+
+## 🔧 Backend Setup
+
 ```bash
 cd backend
-# Set environment variables in .env file
 .\mvnw.cmd spring-boot:run
 ```
-Server runs at `http://localhost:8080`
 
-### Frontend
+Backend runs on:
+
+```bash
+http://localhost:8080
+```
+
+---
+
+## 🎨 Frontend Setup
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-App runs at `http://localhost:5173`
 
-## ⚙️ Environment Variables
+Frontend runs on:
 
-**Backend** (`.env`)
-```env
-MONGODB_URI=mongodb://localhost:27017/ecommerce
-JWT_SECRET=your-secret-key
+```bash
+http://localhost:5173
 ```
 
-**Frontend** (`.env`)
+---
+
+## 🌍 Environment Variables
+
+### Backend `.env`
+
+```env
+MONGODB_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_secret_key
+```
+
+### Frontend `.env`
+
 ```env
 VITE_API_URL=http://localhost:8080/api
 ```
 
-## 📄 License
+---
 
+## 📂 Project Structure
 
-## 👥 Team
+```bash
+backend/
+ ├── controller/
+ ├── service/
+ ├── repository/
+ ├── model/
+ ├── security/
 
-| Name                | Role                                                      |
-|---------------------|------------------------------------------------------------
-| Shriram Mange       | [GitHub](https://github.com/Shriram2005) · [Portfolio](https://shrirammange.tech) | · [Email](mailto:mange.shriram@gmail.com) |
-| Chanchal Fegade     | [GitHub](https://github.com/chanchalfegade29) · [Email](mailto:fegadechanchal@gmail.com) |
-| Sahil Gite          | [GitHub](https://github.com/sahilgite1023) · [LinkedIn](https://www.linkedin.com/in/sahilgite2003) |
-| Anushka Shinde      | [GitHub](https://github.com/anushkashinde7188) · [Portfolio](https://anushkashinde.netlify.app/) · [Email](mailto:anushkashinde1504@gmail.com) |
+frontend/
+ ├── components/
+ ├── pages/
+ ├── services/
+ ├── store/
+```
 
 ---
 
-MIT License
+## ✨ Key Highlights
 
-<p align="center">Built with ❤️ by Shriram Mange</p>
+* Full JWT Authentication System
+* MongoDB Atlas Integration
+* Admin & User Role Management
+* Product Filtering & Search
+* Real-Time Stock Updates
+* Fully Responsive UI
+* Clean Modern Dark Theme
+
+---
+
+## 👨‍💻 Developer
+
+### Karthick Kalaivanan
+
+* 🔗 GitHub: https://github.com/k4rthickx22
+* 💼 LinkedIn: https://www.linkedin.com/in/karthick-kalaivanan
+* 📧 Email: [karthickkalaivanan101@gmail.com](mailto:karthickkalaivanan101@gmail.com)
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+<p align="center">
+Built with ❤️ by Karthick Kalaivanan
+</p>
