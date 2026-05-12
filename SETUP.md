@@ -1,47 +1,76 @@
-# Quick Setup Guide
+# ⚡ Backend Environment Setup (`backend/.env`)
 
-## Prerequisites
-- Java 21 JDK
-- Node.js 18+
-- MongoDB (Atlas or Local)
+Create or update your:
 
-## Environment Setup
+```env id="jlwm92"
+backend/.env
+```
 
-### 1. Backend (.env file)
-Create/update `backend/.env`:
-```env
-MONGODB_URI=mongodb+srv://Shriram2005:Shriram2005@cluster0.sfh7knq.mongodb.net/ecommerce?retryWrites=true&w=majority
-JWT_SECRET=mySecretKeyForJWTTokenGenerationMustBeAtLeast256BitsLong
+Paste this:
+
+```env id="jlwm93"
+MONGODB_URI=mongodb+srv://happyCart22:karthick%402004@cluster0.ks5dsvk.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=Cluster0
+
+JWT_SECRET=mysecretkey123
+
 CORS_ORIGINS=http://localhost:5173,http://localhost:3000
+
 PORT=8080
+
 SPRING_PROFILES_ACTIVE=dev
 ```
 
-### 2. Frontend (.env file)
-Create `frontend/.env`:
-```env
-VITE_API_URL=http://localhost:8080/api
-```
+---
 
-## Running the Project
+# ▶️ Run Backend
 
-### Terminal 1 - Backend
-```bash
+```bash id="jlwm94"
 cd backend
 .\mvnw.cmd spring-boot:run
 ```
-✅ Backend starts at `http://localhost:8080`
 
-### Terminal 2 - Frontend
-```bash
+---
+
+# ▶️ Run Frontend
+
+```bash id="jlwm95"
 cd frontend
 npm install
 npm run dev
 ```
-✅ Frontend starts at `http://localhost:5173`
 
-## Access the App
-- **User App**: http://localhost:5173
-- **API Server**: http://localhost:8080/api
+---
 
-Done! 🎉
+# 🌍 Access Project
+
+| Service     | URL                       |
+| ----------- | ------------------------- |
+| Frontend    | http://localhost:5173     |
+| Backend API | http://localhost:8080/api |
+
+---
+
+# 🔐 Admin Login
+
+```txt id="jlwm96"
+Email: karthickkalaivanan101@gmail.com
+```
+
+---
+
+# ✅ Features Enabled
+
+* MongoDB Atlas Cloud Database
+* JWT Authentication
+* Admin Dashboard
+* Product Management
+* Cart & Wishlist
+* Order Tracking
+* Reviews & Ratings
+* Dark Mode UI
+
+---
+
+<p align="center">
+Built with ❤️ by Karthick Kalaivanan
+</p>
