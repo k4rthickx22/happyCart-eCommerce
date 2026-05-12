@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ecommerce-backend
+
+  data:
+    mongodb:
+      uri: mongodb+srv://happyCart22:karthick%402004@cluster0.ks5dsvk.mongodb.net/ecommerce?retryWrites=true&w=majority&appName=Cluster0
+      database: ecommerce
+
+server:
+  port: 8080
+
+jwt:
+  secret: mySecretKeyForJWTTokenGenerationMustBeAtLeast256BitsLong
+  expiration: 86400000
+
+cors:
+  allowed-origins: http://localhost:5173,http://localhost:3000
+
+logging:
+  level:
+    com.ecommerce: DEBUG
+    org.springframework.security: DEBUG
