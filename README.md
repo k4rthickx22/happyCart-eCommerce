@@ -38,12 +38,6 @@ A modern and scalable **Full-Stack E-Commerce Web Application** built using **Sp
 
 ---
 
-## 📸 Project Preview
-
-<img width="100%" src="https://github.com/user-attachments/assets/c8f39a48-1b21-4a6a-adca-0a65a1eef143"/>
-
----
-
 ## ⚙️ Installation & Setup
 
 ### 🔹 Clone Repository
