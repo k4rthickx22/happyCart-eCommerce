@@ -133,7 +133,7 @@ frontend/
 ### Karthick Kalaivanan
 
 * 🔗 GitHub: https://github.com/k4rthickx22
-* 💼 LinkedIn: https://www.linkedin.com/in/karthick-kalaivanan
+* 💼 LinkedIn: https://www.linkedin.com/in/k4rthick22/
 * 📧 Email: [karthickkalaivanan101@gmail.com](mailto:karthickkalaivanan101@gmail.com)
 
 ---
