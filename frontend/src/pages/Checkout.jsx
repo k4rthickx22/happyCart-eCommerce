@@ -83,7 +83,8 @@ export default function Checkout() {
   const items = cart.items || [];
   const subtotal = cart.totalPrice || 0;
   const shipping = subtotal > 500 ? 0 : 50;
-  const total = subtotal + shipping;
+  const tax = Math.round(subtotal * 0.18);
+  const total = subtotal + shipping + tax;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
@@ -359,9 +360,13 @@ export default function Checkout() {
                 <span>Shipping</span>
                 <span>{shipping === 0 ? 'FREE' : `₹${shipping}`}</span>
               </div>
+              <div className="flex justify-between text-gray-600 dark:text-gray-400">
+                <span>GST (18%)</span>
+                <span>₹{tax.toLocaleString()}</span>
+              </div>
               <div className="border-t dark:border-gray-700 pt-3">
                 <div className="flex justify-between font-semibold text-lg">
-                  <span>Total</span>
+                  <span>Total <span className="text-xs font-normal text-gray-500">(incl. GST)</span></span>
                   <span>₹{total.toLocaleString()}</span>
                 </div>
               </div>

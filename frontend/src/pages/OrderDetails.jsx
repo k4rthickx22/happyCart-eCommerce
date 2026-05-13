@@ -188,17 +188,23 @@ export default function OrderDetails() {
               </div>
               <div className="flex justify-between text-gray-600 dark:text-gray-400">
                 <span>Shipping</span>
-                <span>{order.shippingCost === 0 ? 'FREE' : `₹${order.shippingCost}`}</span>
+                <span>{order.shippingCost === 0 ? 'FREE' : `₹${order.shippingCost?.toLocaleString()}`}</span>
               </div>
+              {order.tax > 0 && (
+                <div className="flex justify-between text-gray-600 dark:text-gray-400">
+                  <span>GST (18%)</span>
+                  <span>₹{order.tax?.toLocaleString()}</span>
+                </div>
+              )}
               {order.discount > 0 && (
                 <div className="flex justify-between text-green-600">
                   <span>Discount</span>
-                  <span>-₹{order.discount.toLocaleString()}</span>
+                  <span>-₹{order.discount?.toLocaleString()}</span>
                 </div>
               )}
               <div className="border-t dark:border-gray-700 pt-3">
                 <div className="flex justify-between font-semibold text-lg">
-                  <span>Total</span>
+                  <span>Total <span className="text-xs font-normal text-gray-500">(incl. GST)</span></span>
                   <span>₹{order.totalAmount?.toLocaleString()}</span>
                 </div>
               </div>
