@@ -1,12 +1,9 @@
 # Stage 1: Build
 FROM maven:3.9.2-eclipse-temurin-17 AS builder
 WORKDIR /app
-COPY .mvn .mvn
-COPY mvnw mvnw
 COPY pom.xml .
 COPY src src
-RUN chmod +x mvnw
-RUN ./mvnw clean install -DskipTests
+RUN mvn clean install -DskipTests
 
 # Stage 2: Runtime
 FROM eclipse-temurin:17-jre-jammy
