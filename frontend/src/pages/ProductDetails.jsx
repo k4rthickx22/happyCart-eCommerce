@@ -109,8 +109,8 @@ export default function ProductDetails() {
     : 0;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-fade-in">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
         {/* Image Gallery */}
         <div>
           <div className="aspect-square bg-gray-100 dark:bg-gray-700 rounded-2xl overflow-hidden mb-4">
@@ -139,8 +139,8 @@ export default function ProductDetails() {
 
         {/* Product Info */}
         <div>
-          <p className="text-primary-600 font-medium mb-2">{product.categoryName}</p>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <p className="text-primary-600 font-medium mb-1 sm:mb-2 text-sm">{product.categoryName}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             {product.name}
           </h1>
           
@@ -153,13 +153,13 @@ export default function ProductDetails() {
           </div>
 
           {/* Price */}
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center flex-wrap gap-2 sm:gap-4 mb-4 sm:mb-6">
             {product.discountPrice ? (
               <>
-                <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                <span className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                   ₹{product.discountPrice.toLocaleString()}
                 </span>
-                <span className="text-xl text-gray-500 line-through">
+                <span className="text-lg sm:text-xl text-gray-500 line-through">
                   ₹{product.price.toLocaleString()}
                 </span>
                 <span className="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">
@@ -167,7 +167,7 @@ export default function ProductDetails() {
                 </span>
               </>
             ) : (
-              <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              <span className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                 ₹{product.price.toLocaleString()}
               </span>
             )}
@@ -212,7 +212,7 @@ export default function ProductDetails() {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-4 mb-8">
+          <div className="flex gap-3 mb-6 sm:mb-8">
             <button
               onClick={handleAddToCart}
               disabled={cartLoading || product.stockQuantity === 0}
@@ -253,14 +253,14 @@ export default function ProductDetails() {
       </div>
 
       {/* Tabs */}
-      <div className="mt-16">
+      <div className="mt-10 sm:mt-16">
         <div className="border-b dark:border-gray-700">
-          <div className="flex gap-8">
+          <div className="flex gap-4 sm:gap-8 overflow-x-auto scrollbar-hide">
             {['description', 'specifications', 'reviews'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`pb-4 font-medium capitalize transition-colors ${
+                className={`pb-4 font-medium capitalize transition-colors whitespace-nowrap text-sm sm:text-base ${
                   activeTab === tab
                     ? 'text-primary-600 border-b-2 border-primary-600'
                     : 'text-gray-500 hover:text-gray-700'
