@@ -12,21 +12,48 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    let isMounted = true;
+
+    const fetchCategories = async () => {
       try {
-        const [productsRes, categoriesRes] = await Promise.all([
-          productsAPI.getFeatured({ size: 8 }),
-          categoriesAPI.getRoot(),
-        ]);
-        setFeaturedProducts(productsRes.data.data.content || []);
-        setCategories(categoriesRes.data.data || []);
+        const res = await categoriesAPI.getRoot();
+        if (isMounted) {
+          setCategories(res.data.data || []);
+        }
       } catch (error) {
-        console.error('Failed to fetch data:', error);
-      } finally {
-        setIsLoading(false);
+        console.error('Failed to fetch categories:', error);
+        // Retry once after 1.5s (handles Railway cold-start on Android)
+        setTimeout(async () => {
+          try {
+            const res = await categoriesAPI.getRoot();
+            if (isMounted) setCategories(res.data.data || []);
+          } catch (retryError) {
+            console.error('Category retry failed:', retryError);
+          }
+        }, 1500);
       }
     };
+
+    const fetchFeaturedProducts = async () => {
+      try {
+        const res = await productsAPI.getFeatured({ size: 8 });
+        if (isMounted) {
+          setFeaturedProducts(res.data.data.content || []);
+        }
+      } catch (error) {
+        console.error('Failed to fetch featured products:', error);
+      }
+    };
+
+    const fetchData = async () => {
+      // Fetch independently so one failure doesn't block the other
+      await Promise.allSettled([fetchCategories(), fetchFeaturedProducts()]);
+      if (isMounted) setIsLoading(false);
+    };
+
     fetchData();
+
+    return () => { isMounted = false; };
   }, []);
 
   const features = [

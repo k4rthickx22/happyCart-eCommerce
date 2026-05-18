@@ -8,7 +8,8 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 15000,
+  // 30s timeout — Railway can be slow to cold-start, especially on Android mobile networks
+  timeout: 30000,
 });
 
 // Request interceptor to add auth token
@@ -28,7 +29,17 @@ api.interceptors.request.use(
 // Response interceptor to handle errors
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
+    // Retry once on network timeout/connection errors (handles mobile network glitches)
+    const config = error.config;
+    if (
+      !config?._retried &&
+      (error.code === 'ECONNABORTED' || error.code === 'ERR_NETWORK' || !error.response)
+    ) {
+      config._retried = true;
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      return api(config);
+    }
     if (error.response?.status === 401) {
       useAuthStore.getState().logout();
       if (window.location.pathname !== '/login') {
@@ -38,6 +49,7 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 
 export default api;
 
